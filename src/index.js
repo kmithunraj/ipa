@@ -7,6 +7,7 @@ const seedDatabase = require('./seed/seed');
 const studentRoutes = require('./routes/student');
 const sectionRoutes = require('./routes/section');
 const examRoutes = require('./routes/exam');
+const resultRoutes = require('./routes/result');
 const { errorHandler } = require('./middleware/error');
 const { sequelize } = require('./config/db');
 
@@ -37,7 +38,7 @@ const init = async () => {
     app.use('/api/student', studentRoutes);
     app.use('/api/section', sectionRoutes);
     app.use('/api/exam', examRoutes);
-
+    app.use('/api/result', resultRoutes);
     // Error handling
     app.use(errorHandler);
 
