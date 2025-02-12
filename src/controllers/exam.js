@@ -3,7 +3,7 @@ const Section = require('../models/Section');
 
 exports.createExam = async (req, res) => {
   try {
-    
+
     const exam = await Exam.create(req.body);
     res.status(201).json(exam);
 
@@ -18,6 +18,7 @@ exports.getExams = async (req, res) => {
   try {
     // Use a single query with eager loading
     const exams = await Exam.findAll({
+
       attributes: ['id', 'name', 'date', 'time'],
       include: [{
         model: Section,
@@ -29,7 +30,9 @@ exports.getExams = async (req, res) => {
         ['sections', 'id', 'ASC']
       ]
     });
+
     res.status(200).json(exams);
+    
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
