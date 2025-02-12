@@ -4,6 +4,7 @@ const { validateName, validateDate, validateStudentId } = require('../utils/vali
 
 exports.register = async (req, res) => {
   try {
+
     const name = validateName(req.body.name);
     const dob = validateDate(req.body.dob);
 
@@ -13,8 +14,11 @@ exports.register = async (req, res) => {
       message: 'Registration successful',
       studentId: student.id
     });
+
   } catch (error) {
+
     res.status(400).json({ message: error.message });
+    
   }
 };
 
