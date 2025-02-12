@@ -3,10 +3,14 @@ const Section = require('../models/Section');
 
 exports.createExam = async (req, res) => {
   try {
+    
     const exam = await Exam.create(req.body);
     res.status(201).json(exam);
+
   } catch (error) {
+
     res.status(400).json({ message: error.message });
+
   }
 };
 
