@@ -6,6 +6,7 @@ exports.register = async (req, res) => {
   try {
 
     const name = validateName(req.body.name);
+    
     const dob = validateDate(req.body.dob);
 
     const student = await Student.create({ name, dob });
@@ -18,7 +19,7 @@ exports.register = async (req, res) => {
   } catch (error) {
 
     res.status(400).json({ message: error.message });
-    
+
   }
 };
 
