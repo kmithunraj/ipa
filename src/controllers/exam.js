@@ -5,6 +5,7 @@ exports.createExam = async (req, res) => {
   try {
 
     const exam = await Exam.create(req.body);
+    console.log(req.body);
     res.status(201).json(exam);
 
   } catch (error) {
